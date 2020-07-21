@@ -1,4 +1,5 @@
 package com.companey;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -17,9 +18,11 @@ public class Tank extends Frame implements KeyListener {
     }
     public void paint(Graphics g){
         g.drawString("x=" + x + ", y=" + y,40,60);
-        g.draw3DRect(25,35,450,450,true);
-        g.setColor(Color.red);
-        g.fill3DRect(x,y,40,40,true);
+        ImageIcon i= new ImageIcon("D:\\MEHRZAD\\Programing\\portfolio\\Tanks\\Images\\Tank_top2.png");
+        i.paintIcon(this,g,x,y);
+//        g.draw3DRect(25,35,450,450,true);
+//        g.setColor(Color.red);
+//        g.fill3DRect(x,y,40,40,true);
 
     }
 
