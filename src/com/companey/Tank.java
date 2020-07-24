@@ -1,70 +1,50 @@
 package com.companey;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class Tank extends JPanel {
+    String pic;
+    int size = 10;
+    int posX = 300;
+    int posY = 280;
+    int direction = 0;
+    String owner = "player"; // TODO: read about ENUM
 
 
-public class Tank extends Frame implements KeyListener {
-    int x=255,y=255;
-    public Tank(){
-        setSize(500,500);
-        addKeyListener( this);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent we){
-                System.exit(0);
-            }
-        });
-
-    }
-    public void paint(Graphics g){
-        g.drawString("x=" + x + ", y=" + y,40,60);
-        ImageIcon i= new ImageIcon("D:\\MEHRZAD\\Programing\\portfolio\\Tanks\\Images\\Tank_top2.png");
-        i.paintIcon(this,g,x,y);
-//        g.draw3DRect(25,35,450,450,true);
-//        g.setColor(Color.red);
-//        g.fill3DRect(x,y,40,40,true);
-
-    }
-
-
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-
-    public void keyPressed(KeyEvent e) {
-        int KeyCode=e.getKeyCode();
-
-        switch (KeyCode){
-            case KeyEvent.VK_UP:
-                if(y>35)
-                    y= y-10;
-                break;
-
-            case KeyEvent.VK_DOWN:
-                if(y<440)
-                    y= y+10;
-                break;
-            case KeyEvent.VK_LEFT:
-                if(x>25)
-                    x=x-10;
-                break;
-            case KeyEvent.VK_RIGHT:
-                if(x<435)
-                x=x+10;
-                break;
-        }
+    public Tank() {
+        setLayout(null);
         repaint();
 
     }
 
 
-    public void keyReleased(KeyEvent e) {
+
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        g.drawString("x=" + posX + ", y=" + posY,40,60);
+        ImageIcon i= new ImageIcon("D:\\MEHRZAD\\Programing\\portfolio\\Tanks\\Images\\Tank_top4.png");
+        i.paintIcon(this,g,posX,posY);
+        g.draw3DRect(10,10,660,540,true);
+
+
+
+        }
+
+
+
+    public void move() {
+
 
     }
 
-    public static void main(String[] args) {
-       new Tank().show();
+    public void shoot() {
+
+    }
+
+    public void destroy() {
 
     }
 
